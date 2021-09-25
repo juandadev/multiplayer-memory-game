@@ -1,16 +1,22 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --primary-color: #fda214;
+  --primary-color-hover: #ffb84a;
+  --secondary-color: #304859;
+  --secondary-color-hover: #6395b8;
+  --secondary-light-color-1: #dfe7ec;
+  --secondary-light-color-2: #bcced9;
+  --background-dark-color: #152938;
+  --background-light-color: #fcfcfc;
+  --background-modal-color: rgba(0, 0, 0, 0.5);
+  --text-color: #7191a5;
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
