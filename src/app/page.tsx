@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Board from "@/components/Board";
+import Timer from "@/components/Timer";
 
 export default function Home() {
   const [score, setScore] = useState<number>(0);
@@ -25,8 +26,9 @@ export default function Home() {
       </header>
       <main className="flex flex-col items-center">
         <Board size={16} updateScore={handleScore} />
-        <div className="flex flex-row justify-center">
-          <div className="flex flex-col items-center bg-amber-500 text-white p-3 rounded-lg w-40">
+        <div className="flex flex-row justify-center gap-4">
+          <Timer />
+          <div className="flex flex-col items-center bg-blue-200 text-blue-950 p-3 rounded-lg w-40">
             <p>Player 1</p>
             <p className="text-2xl">{score}</p>
           </div>
