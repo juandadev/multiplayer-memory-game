@@ -1,7 +1,7 @@
 export const generateAndShuffleArray = (size: number): number[] => {
   const arraySize = [];
 
-  for (let i = 0; i < size; i++) {
+  for (let i = 0; i < size / 2; i++) {
     arraySize.push(i + 1);
     arraySize.push(i + 1);
   }

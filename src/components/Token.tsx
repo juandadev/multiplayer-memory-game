@@ -1,33 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 type TokenProps = {
+  flipped: boolean;
+  index: number;
+  // eslint-disable-next-line no-unused-vars
+  onClick(value: number, index: number): void;
   value: number;
 };
 
-export default function Token({ value }: TokenProps) {
-  const [color, setColor] = useState<string>("bg-sky-950");
+export default function Token({ flipped, index, onClick, value }: TokenProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const target = event.target as HTMLDivElement;
+  if (ref.current && flipped) {
+    ref.current.innerHTML = `${value}`;
+  } else if (ref.current && !flipped) {
+    ref.current.innerHTML = "";
+  }
 
-    setColor((prevState: string) => {
-      if (prevState === "bg-sky-950") return "bg-blue-200";
-
-      return "bg-sky-950";
-    });
-
-    if (color === "bg-sky-950") {
-      target.innerHTML = `${value}`;
-    } else {
-      target.innerHTML = "";
+  const handleClick = () => {
+    if (!flipped) {
+      onClick(value, index);
     }
   };
 
   return (
     <div
-      className={`${color} w-20 h-20 rounded-full flex justify-center items-center text-4xl select-none cursor-pointer`}
+      className={`${flipped ? "bg-blue-200" : "bg-sky-950"} w-20 h-20 rounded-full flex justify-center items-center text-4xl select-none cursor-pointer`}
+      ref={ref}
       onClick={handleClick}
     />
   );
